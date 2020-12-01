@@ -1,0 +1,1 @@
+# Location predictor utilising publically available location network API's (Strava in this instance) for the raw data and Azure Machine Learning for the model prediction and training (2nd Year Group Project)
