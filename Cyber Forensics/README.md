@@ -1,0 +1,1 @@
+# Computer forensics and incident response module that involved data carving inaccessible data, examining hard drives for criminal evidence and conducting a mock investigation of a health business after a data breach (3nd Year)

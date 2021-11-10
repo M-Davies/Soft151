@@ -1,0 +1,5 @@
+# Matches older variants of Pushdo with unencrypted body
+alert tcp $HOME_NET any -> $EXTERNAL_NET 80 (msg: "MALWARE-CNC Win.Trojan.Pushdo variant outbound connection"; classtype:trojan-activity; flow:to_server,established; flags: A; sid: 29890; rev: 7; content: "GET"; http_method; content: "Connection|3A| Keep-Alive"; http_header; nocase; content: "Content-Type|3A| application|2f|octet-stream"; http_header; nocase; content: "Accept|3A| |2a 2f 2a|"; http_header; nocase; content: "/s_"; pcre: "/\/s_[0-9]*_[0-9]*\?m=[0-9]?&a=[0-9]&r=[0-9]?&hdd=[0-9a-dA-Z]*&fs=[0-1]+&gen=[0-9]*&os=[0-9]*/P";)
+
+# Matches newer variants of Pushdo with obfuscated HTTP Body
+alert tcp $HOME_NET any -> $EXTERNAL_NET 80 (msg: "MALWARE-CNC Win.Trojan.Pushdo variant outbound connection"; classtype:trojan-activity; flow:to_server,established; flags: A; sid: 29891; rev: 7; content: "GET"; http_method; content: "Connection|3A| Keep-Alive"; http_header; nocase; content: "Content-Type|3A| application|2f|octet-stream"; http_header; nocase; content: "Accept|3A| |2a 2f 2a|"; http_header; nocase; content: "/40"; pcre: "/\/40[eE]8[0-9A-Z0-9]+6C[0-9]+66[0-9]+76[0-9]+EB[0-9]+30[0-9A-Z]+/P";)

@@ -1,0 +1,1 @@
+# Analysis of network packets and the appropriate methods and solutions of countering malicious ones, as well as a report on how financial SME businesses can mitigate the effects of a cyber attack (3nd Year)
