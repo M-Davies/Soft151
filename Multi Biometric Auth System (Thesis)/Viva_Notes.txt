@@ -1,0 +1,41 @@
+As mentioned in the video, developers can access the python library directly using a command line interface. This is so it is easy for applications to execute and parse responses from the recognition services in the cloud, as almost any software framework is capable of reading a JSON object. The library has a help interface that describes the functions.
+
+<python manager.py -h>
+
+The library powers the website, so we can use it in the same manner as the website to create the same account made on the website. 
+
+<python manager.py -a create -m -p foobar -f /Users/morgan/Documents/Repos/eye-of-horus/images/GestureRecognition/masked/face.jpg -l /Users/morgan/Documents/Repos/eye-of-horus/images/GestureRecognition/masked/gesture_1.jpg /Users/morgan/Documents/Repos/eye-of-horus/images/GestureRecognition/masked/gesture_2.jpg /Users/morgan/Documents/Repos/eye-of-horus/images/GestureRecognition/masked/gesture_3.jpg /Users/morgan/Documents/Repos/eye-of-horus/images/GestureRecognition/masked/gesture_4.jpg -u /Users/morgan/Documents/Repos/eye-of-horus/images/GestureRecognition/masked/gesture_4.jpg /Users/morgan/Documents/Repos/eye-of-horus/images/GestureRecognition/masked/gesture_3.jpg /Users/morgan/Documents/Repos/eye-of-horus/images/GestureRecognition/masked/gesture_1.jpg /Users/morgan/Documents/Repos/eye-of-horus/images/GestureRecognition/masked/gesture_2.jpg>
+
+As mentioned in the video, there are additional features on the Python side of the project. One of those features I would like to demonstrate here is the ability of the program to recognise faces on a video stream, without being fooled by a presentation attack in the same manner as a still image.
+
+From the command line, the python library is capable of identifying a known face in the collection of users in a video stream, known as a dynamic analysis. It will match the highest confidence face and exit the stream with the metadata.
+
+<python manager.py -a compare>
+
+Alternatively, you can perform a stream focused analysis, narrowing down the search to a user's stored face.
+
+<python manager.py -a compare -p morgan>
+
+Both methods have the inbuilt presentation attack protection, so that a faked or low quality face cannot be used to gain unauthorised access to a user's account. It works by tracking the co-ordinate positions of features on the face and comparing them to within a 0.09 ratio of the captured frame or image.
+
+<python manager.py -a compare> WITH FACE SLIGHTLY OFF CENTRE
+
+The point of this is so it can be used in scenarios where the machine itself can be used to log users in. As such, this could be used in physical access scenarios, where the Eye of Horus has been loaded onto a video device guarding a physical door. It could be constantly running on a microservice, allowing for quick, constant but accurate authentication.
+
+Finally, a developer can manage when the gesture recognition machine learning modal is active or down or to conduct dry analysis of gestures using the gesture recognition library, which is separate from the main manager function we have been using so far.
+
+<cd gesture>
+<python gesture_recog.py -h>
+
+To conduct a dry analysis, it is a simple matter of taking a picture and feeding the path into the program as so
+
+<take-photo>
+<python gesture_recog.py -f <path-to-image> -m>
+
+As you can see, the results are displayed below and in the defaults.json file mentioned earlier.
+
+As for controlling whether the modal is active, a developer can turn it on or shut it down safely using the same program. This is important as AWS charges you while the modal is active, so financial deprived developers still have the ability to control when they are billed.
+
+DON'T EXECUTE!!!! <python gesture_recog.py -a stop>
+
+That is all I have time for today. Thank you for listening. Are there any questions?

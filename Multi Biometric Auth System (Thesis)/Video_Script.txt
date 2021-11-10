@@ -1,0 +1,42 @@
+Hello and welcome to the highlight video of the eye of Horus multi-factor biometric authentication system.
+
+So what is the eye of Horus, or just "the eye" for short. It is a cheap, lightweight, biometric authentication system that uses more than one biometric feature to authenticate a user. It is targeted at application developers, who are seeking a more accessible and, arguably, secure alternative to typical password credentials.
+
+Now, why did I chose this subject and what benefit does it bring to society? Traditional credential based authentication using secret and one-time passwords is generally agreed by security experts to not be the most secure method of authenticating a user. In addition, consider how many times you have forgotten your password and how many people are unable to use a computer due to physical or mental impairment. All these situations could be avoided with the use of biometrics on websites normally using password authentication. In summary, I wish to propose a hypothesis where biometrics is chosen over passwords for website authentication.
+
+There are some concerns however. Critics are not wrong about the infancy of biometrics and the security concerns that have been raised in the past regarding weaknesses in a secular authentication system. So I decided to experiment with creating a proof-of-concept website and library that can support two types of biometric authentication (face and gesture), with room to include more.
+
+So, how does it work? The system is based off two components, a Python library that is the front-facing interface for the developers and several AWS, Amazon Web Services, Cloud instances that, based off commands from the library, run the actual gesture and facial recognition.
+
+<SHOW WEBSITE>
+
+The website is powered by the python library to connect with AWS and is a good template to show what the final result of a developer wishing to integrate the project into their website could look. This is the landing page and we are going to begin by showing off how to create an account.
+
+<USERNAME FOOBAR>
+
+The system has detected that this is a new account and has redirected us to the account creation page, where we will need to enter a lock and unlock gesture combination for our account. Now, I should mention what a gesture combination is. Instead of using an insecure, singular gesture type or expensive fingerprint scanner, I have instead decided to enforce the creation of what I am calling a gesture combination on each account. A gesture combination is a unique pattern of gesture types that the machine learning model accepts. When logging in or out, that combination is compared with the entered combination and access is denied or granted based on if the two match. In essence, it is like a password, just with gestures instead of characters.
+
+The available gesture types at the time of this recording are a closed hand, open hand, three fingers and thumb out, and we will need to upload these files in the order we want our gesture combination to be. So I have prepared some gestures in advance to create my account with. As for my face, a snapshot from the webcam, as seen on the right of your screen, is captured automatically.
+
+<BEGIN ENTERING>
+
+Now it's important to note here that the system is protected from bad gesture combinations in a similar manner to how you cannot usually enter a password that is too short without numbers and special characters.
+
+<SUBMIT>
+
+This does take a little longer than password based systems, since hashing is extremely fast compared to machine learning.
+
+And now we're logged in! Here there is nothing to show as this website is just a template but you could theoretically put anything you wanted into here, just like a normal password based website.
+
+Now our account is created and we are in a logged in state, you are able to alter some of your credentials. Here, I can change my face and gesture combinations and delete my account. I will now log out using my lock gesture, to show how a user can log back into their account after creating it.
+
+<LOG OUT WITH GESTURE COMBINATION & FACE>
+
+So now let's try and log back in, to show that the system will accept our new gestures with the ones obtained earlier.
+
+<LOG IN>
+
+All of the features shown here on the website and more are available on the command line too via the python library.
+
+So, if you are a developer and you wish for an alternative to passwords for your website, application or any piece of software that can read a JSON file, consider switching to The Eye Of Horus to ensure anyone can authenticate when and where they want to. When you learn how to see something, you learn how to believe it.
+
